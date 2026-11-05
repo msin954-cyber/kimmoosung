@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>오설록 제주숲홍차</title>
+<!-- 안개가 첫 렌더링부터 화면을 덮도록 JS 클래스를 동기 설정. JS가 없으면 .js가 붙지 않아 완성 화면이 바로 표시됨 -->
+<script>document.documentElement.classList.add('js')</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600&family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav"><a class="logo" href="#hero">Jeju Forest Tea</a>
+<nav><a href="#brand">Brand</a><a href="#jeju-story">Jeju Story</a><a href="#product">Product</a><a href="#moment">Tea Moment</a><a href="#gift">Gift</a><a class="buy" href="https://www.osulloc.com/kr/ko/shop/item/teashop/16358" target="_blank" rel="noopener">선물하기</a></nav></header>
+
+<!-- SECTION 01 HERO : 3장 풀스크린 슬라이드(Ken Burns + 크로스페이드) + 줄별 자막.
+     슬라이드 이미지·문구는 script.js 상단 HERO_SLIDES 배열에서만 관리 → HTML 수정 불필요 -->
+<section class="hero" id="hero" aria-roledescription="carousel" aria-label="제주숲홍차 메인 비주얼">
+ <!-- 슬라이드는 JS가 .hero-slides 안에 생성 -->
+ <div class="hero-slides"></div>
+ <!-- 텍스트 가독성용 약한 그라데이션 -->
+ <div class="hero-shade" aria-hidden="true"></div>
+ <!-- JS 비활성 대체 문구 -->
+ <noscript><div class="hero-caption" style="opacity:1"><h1 class="hero-title">안개 너머, 제주의 한 잔</h1><a class="hero-cta" href="#jeju-story">제주 이야기 보기</a></div></noscript>
+ <!-- 컨트롤: 이전/다음, 01 / 03, 진행 바, 일시정지 -->
+ <div class="hero-controls">
+  <button class="hc-btn" data-act="prev" aria-label="이전 슬라이드">&#8592;</button>
+  <span class="hc-count" aria-live="polite"><b>01</b> / 03</span>
+  <button class="hc-btn" data-act="next" aria-label="다음 슬라이드">&#8594;</button>
+  <span class="hc-track" aria-hidden="true"><i class="hc-bar"></i></span>
+  <button class="hc-btn" data-act="pause" aria-label="자동재생 일시정지" aria-pressed="false">&#10074;&#10074;</button>
+ </div>
+</section>
+
+<!-- SECTION 02 제주 이야기 -->
+<section class="sec story" id="jeju-story"><div class="grid3">
+ <div class="ph"><img data-par="0.06" src="assets/images/jeju-tea-field.webp" alt="제주 차밭" loading="lazy"></div>
+ <div class="txt rv"><h2>안개가 머무는 제주의 아침</h2><p>해가 오르면 안개가 차밭 사이로 흩어집니다. 그 빛과 습기를 먹고 자란 찻잎이 홍차가 됩니다.</p></div>
+ <div class="ph"><img data-par="0.1" src="assets/images/jeju-sunrise.webp" alt="제주 일출" loading="lazy"></div>
+ <div class="ph wide"><img src="assets/images/홍차밭.jpg" alt="제주 숲" loading="lazy"></div>
+</div></section>
+
+<!-- SECTION 03 브랜드 가치: 호버(PC)/터치(모바일)로 확장 -->
+<section class="sec" id="brand"><h2 class="c">네 가지 마음</h2>
+<div class="cards">
+ <article class="card"><img src="assets/images/value-leaf.webp" alt="" loading="lazy"><h3>찻잎</h3><p>손으로 딴 어린 잎</p></article>
+ <article class="card"><img src="assets/images/value-floral.webp" alt="" loading="lazy"><h3>꽃향</h3><p>차꽃의 은은한 향</p></article>
+ <article class="card"><img src="assets/images/value-tea.webp" alt="" loading="lazy"><h3>깊은 맛</h3><p>맑고 진한 수색</p></article>
+ <article class="card"><img src="assets/images/value-gift.webp" alt="" loading="lazy"><h3>선물</h3><p>마음을 담은 포장</p></article>
+</div></section>
+
+<!-- SECTION 04 제품 소개 -->
+<section class="sec prod" id="product"><div class="pgrid">
+ <!-- 교체 슬롯: 공식 제품 사진을 assets/images/product-official.webp 로 넣고 아래 src 변경 -->
+ <div class="ph"><img src="assets/images/product.webp" alt="제품 연출 컷(AI 생성 콘셉트)"><small>AI 생성 콘셉트 이미지 · 공식 제품 사진 아님</small></div>
+ <div class="txt rv"><h2>제주숲홍차</h2><p>제주의 숲과 차밭을 닮은 향을 한 잔에 담았습니다.</p>
+ <div class="mini"><img src="assets/images/tea-cup.webp" alt="홍차잔" loading="lazy"><img src="assets/images/tea-leaf.webp" alt="찻잎" loading="lazy"><img src="assets/images/tea-flower.webp" alt="차꽃" loading="lazy"></div></div>
+</div></section>
+
+<!-- SECTION 05 티타임: 탭 클릭 시 이미지·설명 동시 변경 -->
+<section class="sec moment" id="moment"><h2 class="c">티타임</h2>
+<div class="mgrid"><img class="big" src="assets/images/tea-moment.webp" alt="김이 오르는 홍차" loading="lazy">
+ <div><div class="tabs" role="tablist">
+  <button role="tab" aria-selected="true" data-i="0">1단계</button><button role="tab" aria-selected="false" data-i="1">2단계</button><button role="tab" aria-selected="false" data-i="2">3단계</button></div>
+  <img id="tabimg" src="assets/images/tea-step1.webp" alt=""><p id="tabtxt"></p></div></div>
+ <img class="pour" src="assets/images/tea-pour.webp" alt="홍차 따르기" loading="lazy"></section>
+
+<!-- SECTION 06 선물 제안: PC 2열 / 모바일 1열 -->
+<section class="sec" id="gift"><div class="pgrid">
+ <div class="ph"><img src="assets/images/gift.webp" alt="리본으로 묶은 선물 상자" loading="lazy"></div>
+ <div class="txt rv"><h2>전하고 싶은 마음에 맞춰</h2><p>차 한 잔의 시간을 선물하세요.</p><img class="thumb" src="assets/images/value-gift.webp" alt="" loading="lazy"></div>
+</div></section>
+
+<!-- SECTION 07 최종 CTA : #314B3D -->
+<section class="final"><h2>말로 다 전하지 못한 마음</h2>
+ <img src="assets/images/제주숲홍차.png" alt="" loading="lazy"><small>연출 컷 · 실제 제품 사진 아님</small>
+ <a class="hero-cta" href="https://www.osulloc.com/kr/ko/shop/item/teashop/16358" target="_blank" rel="noopener">제주숲홍차 선물하기</a></section>
+<footer>© 제주숲홍차 프로모션</footer>
+<script src="script.js"></script>
+</body></html>
